@@ -1,8 +1,8 @@
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClusterException{
         Cluster cluster = new Cluster();
-        cluster.addServers(12);
+        cluster.addServers(4);
         System.out.println(cluster);
         System.out.println("Sending message...");
         cluster.sendMessage();
