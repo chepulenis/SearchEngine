@@ -1,6 +1,14 @@
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Node {
     private int number;
     private boolean failed;
+    private boolean present;
+
+    public boolean isPresent() {
+        return present;
+    }
 
     public int getNumber() {
         return number;
@@ -14,7 +22,8 @@ public class Node {
         this.failed = true;
     }
 
-    public Node(int number) {
+    @JsonCreator
+    public Node(@JsonProperty("number") int number) {
         this.number = number;
     }
 
