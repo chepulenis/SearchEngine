@@ -8,11 +8,6 @@ public class Server {
 
     private int number;
     private boolean failed;
-    private boolean present;
-
-    public boolean isPresent() {
-        return present;
-    }
 
     public boolean isFailed() {
         return failed;

@@ -1,14 +1,11 @@
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class Node {
     private int number;
     private boolean failed;
-    private boolean present;
-
-    public boolean isPresent() {
-        return present;
-    }
 
     public int getNumber() {
         return number;
@@ -30,5 +27,19 @@ public class Node {
     @Override
     public String toString() {
         return "node #" + number + " failed: " + failed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return number == node.number &&
+                failed == node.failed;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, failed);
     }
 }
